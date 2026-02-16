@@ -11,8 +11,8 @@ This is an [Ansible](https://www.ansible.com/) role which installs [Meilisearch]
 
 This role *implicitly* depends on:
 
-- [`com.devture.ansible.role.playbook_help`](https://github.com/devture/com.devture.ansible.role.playbook_help)
-- [`com.devture.ansible.role.systemd_docker_base`](https://github.com/devture/com.devture.ansible.role.systemd_docker_base)
+- [`playbook_help-ar`](https://github.com/P3X-118/playbook_help-ar)
+- [`systemd_docker_base-ar`](https://github.com/P3X-118/systemd_docker_base-ar)
 
 Check [`defaults/main.yml`](defaults/main.yml) for the full list of supported options. Refer to [this page](docs/configuring-meilisearch.md) for details about setting up the service with this role.
 

@@ -50,17 +50,17 @@
       when: meilisearch_container_network_deletion_enabled
       block:
         - name: Ensure Meilisearch container network does not exist via community.docker.docker_network
-          when: devture_systemd_docker_base_container_network_creation_method == 'ansible-module'
+          when: sysd_docker_net_creation_method == 'ansible-module'
           community.docker.docker_network:
             name: "{{ meilisearch_container_network }}"
             state: absent
           register: meilisearch_network_deletion_result
 
         - name: Ensure Meilisearch container network does not exist via ansible.builtin.command
-          when: devture_systemd_docker_base_container_network_creation_method == 'command'
+          when: sysd_docker_net_creation_method == 'command'
           ansible.builtin.command:
             cmd: >-
-              {{ devture_systemd_docker_base_host_command_docker }} network rm
+              {{ sysd_docker_host_command }} network rm
               {{ meilisearch_container_network }}
           register: meilisearch_network_deletion_result
           changed_when: meilisearch_container_network in meilisearch_network_deletion_result.stdout
@@ -74,9 +74,9 @@
 - name: Notify if Meilisearch local data remains
   when: meilisearch_data_path_stat.stat.exists | bool
   ansible.builtin.set_fact:
-    devture_playbook_runtime_messages_list: |
+    runtime_messages_list: |
       {{
-        devture_playbook_runtime_messages_list | default([])
+        runtime_messages_list | default([])
         +
         [
           "Note: As the local Meilisearch instance has been removed, some old data remains in `" + meilisearch_data_path + "`. Feel free to delete it."
