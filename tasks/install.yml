@@ -73,7 +73,7 @@
 - name: Ensure Meilisearch systemd service is present
   ansible.builtin.template:
     src: "{{ role_path }}/templates/systemd/meilisearch.service.j2"
-    dest: "{{ devture_systemd_docker_base_systemd_path }}/{{ meilisearch_identifier }}.service"
+    dest: "{{ sysd_docker_service_path }}/{{ meilisearch_identifier }}.service"
     mode: "0644"
   register: meilisearch_systemd_service_result
 
