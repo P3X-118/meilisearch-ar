@@ -26,7 +26,7 @@ meilisearch_hostname: ""
 # technical limitations.
 meilisearch_path_prefix: /
 
-meilisearch_container_image: "{{ meilisearch_container_image_registry_prefix }}getmeili/meilisearch:{{ meilisearch_container_image_tag }}"
+meilisearch_container_image: "{{ meilisearch_container_image_registry_prefix }}legitservices/meilisearch:{{ meilisearch_container_image_tag }}"
 meilisearch_container_image_tag: "{{ meilisearch_version }}"
 meilisearch_container_image_registry_prefix: "{{ meilisearch_container_image_registry_prefix_upstream }}"
 meilisearch_container_image_registry_prefix_upstream: "{{ meilisearch_container_image_registry_prefix_upstream_default }}"
